@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/headEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Black"
+        android:hint="Note Head"/>
+
+    <EditText
+        android:id="@+id/bodyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Black"
+        android:hint="Note Body"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/scheduleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule Task"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
