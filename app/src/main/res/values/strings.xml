@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">To DO</string>
+    <string name="app_name">To Do</string>
     <string name="splashtxt">Welcome in To Do App</string>
     <string name="note_image">Note Image</string>
     <string name="add_new_note">Add new note</string>

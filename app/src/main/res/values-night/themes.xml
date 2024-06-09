@@ -1,20 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base dark theme. -->
-    <style name="Base.Theme.ToDo.Dark" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/Yellow</item>
-        <item name="colorPrimaryDark">@color/Yellow</item>
-        <item name="colorAccent">@color/Yellow</item>
-        <item name="android:background">@color/Black</item>
-        <item name="android:textColor">@color/White</item>
+    <!-- Base light theme. -->
+    <style name="Base.Theme.ToDo.Light" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#FFFFC107</item>
+        <item name="colorPrimaryDark">#FFFFC107</item>
+        <item name="colorAccent">#FFFFC107</item>
+        <item name="android:background">@color/White</item>
+        <item name="android:textColor">@color/Black</item>
     </style>
 
-    <style name="Theme.ToDo.Dark" parent="Base.Theme.ToDo.Dark" />
+    <style name="Theme.ToDo.Light" parent="Base.Theme.ToDo.Light" />
 
-    <style name="Base.Theme.SplashScreen.Dark" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/Yellow</item>
-        <item name="colorPrimaryDark">@color/Yellow</item>
-        <item name="colorAccent">@color/Yellow</item>
-        <item name="android:background">@color/Black</item>
-        <item name="android:textColor">@color/White</item>
+    <style name="Base.Theme.SplashScreen.Light" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#FFFFC107</item>
+        <item name="colorPrimaryDark">#FFFFC107</item>
+        <item name="colorAccent">#FFFFC107</item>
+        <item name="android:background">@color/White</item>
+        <item name="android:textColor">@color/Black</item>
     </style>
 </resources>

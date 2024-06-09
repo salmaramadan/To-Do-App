@@ -15,7 +15,6 @@ class NotesAdapter(
     private val onDeleteClickListener: (NoteEntity) -> Unit
 ) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false)
         return NoteViewHolder(view)
@@ -23,6 +22,7 @@ class NotesAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = notesList[position]
+        holder.bind(currentNote)
 
         holder.itemView.setOnClickListener {
             onNoteClickListener(currentNote)
@@ -36,7 +36,6 @@ class NotesAdapter(
             onDeleteClickListener(currentNote)
         }
     }
-
 
     override fun getItemCount(): Int {
         return notesList.size

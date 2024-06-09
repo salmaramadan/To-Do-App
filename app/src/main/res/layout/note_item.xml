@@ -5,68 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:id="@+id/list_of_item">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:strokeColor="@color/Bisque"
         app:strokeWidth="2dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/noteHeadTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="4dp"
-            android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        tools:ignore="RtlSymmetry"
-        tools:text="Test" />
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/noteBodyTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:paddingStart="4dp"
-            android:textColor="#000000"
-        android:textSize="16sp"
-        tools:ignore="RtlSymmetry"
-        tools:text="test" />
+            <LinearLayout
+                android:id="@+id/textContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/iconsContainer">
 
+                <TextView
+                    android:id="@+id/noteHeadTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="Test" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/noteBodyTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:paddingStart="4dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="test" />
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-    android:gravity="end"
-    android:orientation="horizontal">
+            </LinearLayout>
 
-<ImageView
-android:id="@+id/editIcon"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:contentDescription="Edit Note"
-android:src="@drawable/ic_edit" />
+            <LinearLayout
+                android:id="@+id/iconsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
 
-<ImageView
-android:id="@+id/deleteIcon"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:contentDescription="Delete Note"
-android:src="@drawable/ic_delete" />
+                <ImageView
+                    android:id="@+id/editIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Edit Note"
+                    android:src="@drawable/ic_edit"
+                    android:layout_marginEnd="8dp" />
 
-</LinearLayout>
+                <ImageView
+                    android:id="@+id/deleteIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Delete Note"
+                    android:src="@drawable/ic_delete"
+                    android:layout_marginEnd="8dp" />
 
-</com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

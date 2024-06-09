@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         when (nightModeFlags) {
-            Configuration.UI_MODE_NIGHT_YES -> setTheme(R.style.Theme_ToDo_Dark)
+            Configuration.UI_MODE_NIGHT_YES -> setTheme(R.style.Theme_ToDo_Light)
             Configuration.UI_MODE_NIGHT_NO -> setTheme(R.style.Theme_ToDo_Light)
             Configuration.UI_MODE_NIGHT_UNDEFINED -> setTheme(R.style.Theme_ToDo_Light)
         }
