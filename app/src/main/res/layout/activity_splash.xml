@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
-        android:text="welcom on to do app"
+        android:text="Welcome in To Do App"
         android:textColor="#FFFFC107"
         android:textSize="20sp"
         android:textStyle="bold"
