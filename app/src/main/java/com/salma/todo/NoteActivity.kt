@@ -20,7 +20,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.salma.data.local.NoteEntity
-import java.util.Date
 
 class NoteActivity : AppCompatActivity() {
     private val notesList = mutableListOf<NoteEntity>()
@@ -80,6 +79,34 @@ class NoteActivity : AppCompatActivity() {
         }
     }
 
+    private val editNoteLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            result.data?.let { data ->
+                val noteId = data.getIntExtra("noteId", -1)
+                if (noteId != -1) {
+                    val noteHead = data.getStringExtra("noteHead") ?: return@let
+                    val noteBody = data.getStringExtra("noteBody") ?: return@let
+                    val scheduledTime = data.getLongExtra("scheduledTime", -1)
+                    val updatedNote = NoteEntity(
+                        id = noteId,
+                        head = noteHead,
+                        body = noteBody,
+                        scheduledTime = if (scheduledTime != -1L) java.util.Date(scheduledTime) else null
+                    )
+                    val index = notesList.indexOfFirst { it.id == noteId }
+                    if (index != -1) {
+                        notesList[index] = updatedNote
+                        notesAdapter.notifyItemChanged(index)
+                        noteViewModel.update(updatedNote)
+                        if (updatedNote.scheduledTime != null) {
+                            scheduleNotification(updatedNote)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private fun setupRecyclerview() {
         notesAdapter = NotesAdapter(notesList,
             this::onNoteClick,
@@ -88,9 +115,10 @@ class NoteActivity : AppCompatActivity() {
         notesRecyclerView.layoutManager = LinearLayoutManager(this)
         notesRecyclerView.adapter = notesAdapter
     }
+
     private fun onEditClick(note: NoteEntity) {
-        // Launch AddNoteActivity for editing the note
         val intent = Intent(this, AddNoteActivity::class.java).apply {
+            putExtra("isEditing", true)
             putExtra("noteId", note.id)
             putExtra("noteHead", note.head)
             putExtra("noteBody", note.body)
@@ -100,6 +128,7 @@ class NoteActivity : AppCompatActivity() {
         }
         editNoteLauncher.launch(intent)
     }
+
 
     private fun onDeleteClick(note: NoteEntity) {
         showDeleteConfirmationDialog(note)
@@ -131,49 +160,10 @@ class NoteActivity : AppCompatActivity() {
         val options = arrayOf("Edit", "Delete")
         AlertDialog.Builder(this).setItems(options) { _, which ->
             when (which) {
-                0 -> editNoteLauncher.launch(Intent(this, AddNoteActivity::class.java).apply {
-                    putExtra("noteId", note.id)
-                    putExtra("noteHead", note.head)
-                    putExtra("noteBody", note.body)
-                    note.scheduledTime?.let {
-                        putExtra("scheduledTime", it.time)
-                    }
-                })
-                1 -> {
-                    noteViewModel.deleteNoteById(note.id)
-                    notesList.remove(note)
-                    notesAdapter.notifyDataSetChanged()
-                }
+                0 -> onEditClick(note)
+                1 -> onDeleteClick(note)
             }
         }.show()
-    }
-
-    private val editNoteLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            result.data?.let { data ->
-                val noteId = data.getIntExtra("noteId", -1)
-                if (noteId != -1) {
-                    val noteHead = data.getStringExtra("noteHead") ?: return@let
-                    val noteBody = data.getStringExtra("noteBody") ?: return@let
-                    val scheduledTime = data.getLongExtra("scheduledTime", -1)
-                    val updatedNote = NoteEntity(
-                        id = noteId,
-                        head = noteHead,
-                        body = noteBody,
-                        scheduledTime = if (scheduledTime != -1L) java.util.Date(scheduledTime) else null
-                    )
-                    val index = notesList.indexOfFirst { it.id == noteId }
-                    if (index != -1) {
-                        notesList[index] = updatedNote
-                        notesAdapter.notifyItemChanged(index)
-                        noteViewModel.update(updatedNote)
-                        if (updatedNote.scheduledTime != null) {
-                            scheduleNotification(updatedNote)
-                        }
-                    }
-                }
-            }
-        }
     }
 
     @SuppressLint("ScheduleExactAlarm")

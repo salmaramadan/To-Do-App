@@ -25,7 +25,8 @@
         >
         <receiver android:name=".NotificationReceiver" />
 
-        <activity android:name="com.salma.todo.AddNoteActivity" />
+        <activity android:name="com.salma.todo.AddNoteActivity"/>
+
         <activity android:name="com.salma.todo.NoteActivity" />
         <activity
             android:name="com.salma.todo.SplashActivity"
