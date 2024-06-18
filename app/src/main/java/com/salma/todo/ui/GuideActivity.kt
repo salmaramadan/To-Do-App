@@ -1,4 +1,4 @@
-package com.salma.todo
+package com.salma.todo.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.salma.todo.R
 
 class GuideActivity : AppCompatActivity() {
     private lateinit var guideImg: ImageView
@@ -30,9 +31,9 @@ class GuideActivity : AppCompatActivity() {
     }
 
     private fun initComponent() {
-        guideImg=findViewById<ImageView>(R.id.guideImg)
-        guideTV=findViewById<TextView>(R.id.guideTV)
-        guideBtn=findViewById<Button>(R.id.guideBtn)
+        guideImg=findViewById(R.id.guideImg)
+        guideTV=findViewById(R.id.guideTV)
+        guideBtn=findViewById(R.id.guideBtn)
     }
 
     fun nextClick(view: View) {
@@ -40,7 +41,7 @@ class GuideActivity : AppCompatActivity() {
         when(clickCount){
             1->{
                 guideImg.setImageResource(R.drawable.write)
-                guideTV.text="Start write your thoughts"
+                guideTV.text="Start writting your thoughts"
             }
             2->{
                 guideImg.setImageResource(R.drawable.save)
@@ -52,7 +53,7 @@ class GuideActivity : AppCompatActivity() {
             }
             4->{
                 guideBtn.text="Create your first note"
-                val noteIntent= Intent(this,NoteActivity::class.java)
+                val noteIntent= Intent(this, NoteActivity::class.java)
                 startActivity(noteIntent)
                 finish()
             }

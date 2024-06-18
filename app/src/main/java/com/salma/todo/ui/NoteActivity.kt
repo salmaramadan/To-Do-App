@@ -1,4 +1,4 @@
-package com.salma.todo
+package com.salma.todo.ui
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
@@ -21,6 +21,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.salma.data.local.NoteEntity
+import com.salma.todo.NoteViewModel
+import com.salma.todo.NotesAdapter
+import com.salma.todo.NotificationReceiver
+import com.salma.todo.R
 
 class NoteActivity : AppCompatActivity() {
     private val notesList = mutableListOf<NoteEntity>()

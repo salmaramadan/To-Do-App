@@ -25,11 +25,11 @@
         >
         <receiver android:name=".NotificationReceiver" />
 
-        <activity android:name="com.salma.todo.AddNoteActivity"/>
+        <activity android:name="com.salma.todo.ui.AddNoteActivity"/>
 
-        <activity android:name="com.salma.todo.NoteActivity" />
+        <activity android:name="com.salma.todo.ui.NoteActivity" />
         <activity
-            android:name="com.salma.todo.SplashActivity"
+            android:name="com.salma.todo.ui.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.ToDo.Light">
             <intent-filter>
@@ -38,7 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.salma.todo.GuideActivity" />
+        <activity android:name="com.salma.todo.ui.GuideActivity" />
     </application>
 
 </manifest>

@@ -3,5 +3,10 @@
     <string name="splashtxt">Welcome in To Do App</string>
     <string name="note_image">Note Image</string>
     <string name="add_new_note">Add new note</string>
+    <string name="note_app">Note App</string>
+    <string name="welcome_to_do_app">Welcome To Do App</string>
+    <string name="click_add_button_to_write_your_note">Click add button to write your note</string>
+    <string name="next">Next</string>
+    <string name="guide_images">Guide images</string>
 
 </resources>

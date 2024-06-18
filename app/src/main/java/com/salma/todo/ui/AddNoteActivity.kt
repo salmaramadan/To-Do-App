@@ -1,4 +1,4 @@
-package com.salma.todo
+package com.salma.todo.ui
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent

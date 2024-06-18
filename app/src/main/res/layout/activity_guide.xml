@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuideActivity"
+    tools:context=".ui.GuideActivity"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:id="@+id/guideTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="click add button to write your note"
+            android:text="@string/click_add_button_to_write_your_note"
             android:textColor="@color/Black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -23,6 +23,7 @@
         <ImageView
             android:id="@+id/guideImg"
             android:layout_width="match_parent"
+            android:contentDescription="@string/guide_images"
             android:layout_height="wrap_content"
             android:src="@drawable/plus"/>
     </LinearLayout>
@@ -33,7 +34,7 @@
             android:id="@+id/guideBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="@string/next"
             android:onClick="nextClick"
             android:textColor="@color/Black"
             android:textSize="20sp"
